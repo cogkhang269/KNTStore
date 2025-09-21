@@ -45,8 +45,8 @@ KNT Store là một website thương mại điện tử được phát triển b
 ## <span style="color: #667eea; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Công nghệ sử dụng</span>
 
 ### <span style="color: #4facfe; background: linear-gradient(45deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Backend</span>
-- **ASP.NET Core 6.0** - Web framework
-- **Entity Framework Core 6.0** - ORM
+- **ASP.NET Core 8.0** - Web framework
+- **Entity Framework Core 8.0** - ORM
 - **SQL Server** - Database
 - **C# 10** - Programming language
 
@@ -66,7 +66,7 @@ KNT Store là một website thương mại điện tử được phát triển b
 
 ### <span style="color: #4facfe; background: linear-gradient(45deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Yêu cầu hệ thống</span>
 - Windows 10/11 hoặc macOS hoặc Linux
-- .NET 6.0 SDK
+- .NET 8.0 SDK
 - SQL Server 2019 hoặc mới hơn
 - Visual Studio 2022 hoặc VS Code
 
