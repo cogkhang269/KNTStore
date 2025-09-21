@@ -3,7 +3,7 @@
 [![.NET](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download)
 [![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-8.0-green.svg)](https://docs.microsoft.com/en-us/aspnet/core/)
 [![Entity Framework](https://img.shields.io/badge/Entity%20Framework-8.0-orange.svg)](https://docs.microsoft.com/en-us/ef/)
-[![SQL Server](https://img.shields.io/badge/SQL%20Server-2019-red.svg)](https://www.microsoft.com/en-us/sql-server)
+[![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-red.svg)](https://www.microsoft.com/en-us/sql-server)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## <span style="color: #667eea; background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Tổng quan</span>
@@ -67,7 +67,7 @@ KNT Store là một website thương mại điện tử được phát triển b
 ### <span style="color: #4facfe; background: linear-gradient(45deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Yêu cầu hệ thống</span>
 - Windows 10/11 hoặc macOS hoặc Linux
 - .NET 8.0 SDK
-- SQL Server 2019 hoặc mới hơn
+- SQL Server 2022 hoặc mới hơn
 - Visual Studio 2022 hoặc VS Code
 
 ### <span style="color: #43e97b; background: linear-gradient(45deg, #43e97b, #38f9d7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bước 1: Clone repository</span>
