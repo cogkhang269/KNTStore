@@ -1,0 +1,96 @@
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<section class="main-banner">
+    <div class="banner-inner">
+     <!-- <div class="banner-image" data-interval="5000">
+        <img src="~/ass/banner/c1.png" alt="KNT Store Banner 1" class="active" />
+        <img src="~/ass/banner/c2.png" alt="KNT Store Banner 2" />
+        <img src="~/ass/banner/c3.png" alt="KNT Store Banner 3" />
+        <img src="~/ass/banner/c4.png" alt="KNT Store Banner 3" />
+    </div>  -->
+    <div class="banner-video">
+        <video autoplay muted loop playsinline>
+            <source src="~/ass/banner/c5.mp4" type="video/mp4" />
+            <source src="~/ass/banner/c5.webm" type="video/webm" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <!-- <div class="banner-controls">
+        <button type="button" class="banner-btn banner-pause" aria-label="Tạm dừng">❚❚</button>
+        <div class="banner-counter">
+            <span class="current-index">1</span>
+            <span class="sep">/</span>
+            <span class="total-count">1</span>
+            <button type="button" class="banner-btn banner-add" aria-label="Thêm ảnh">＋</button>
+        </div>
+        <div class="banner-nav">
+            <button type="button" class="banner-btn banner-prev" aria-label="Ảnh trước">‹</button>
+            <button type="button" class="banner-btn banner-next" aria-label="Ảnh kế">›</button>
+        </div>
+        <input type="file" accept="image/*" class="banner-file" style="display:none" />
+    </div> -->
+</section>
+<section class="banner-grid fade-in-section">
+    <div class="header-title">
+    <div class="title">
+        <h2>GỢI Ý CHO BẠN</h2>
+        </div>
+    </div>
+    <div class="grid">
+        <a class="grid-link gl-1" href="#">
+            <div class="product-image-container">
+                <img data-src="@Url.Content("~/ass/banner/1o2.png")" alt="Sản phẩm 1" class="responsive-img lazy-loading" />
+            </div>
+        </a>
+        <a class="grid-link gl-2" href="#">
+            <div class="product-image-container">
+                <img data-src="@Url.Content("~/ass/banner/2.png")" alt="Sản phẩm 2" class="responsive-img lazy-loading" />
+            </div>
+        </a>
+        <a class="grid-link gl-3" href="#">
+            <div class="product-image-container">
+                <img data-src="@Url.Content("~/ass/banner/3.png")" alt="Sản phẩm 3" class="responsive-img lazy-loading" />
+            </div>
+        </a>
+        <a class="grid-link gl-4" href="#">
+            <div class="product-image-container">
+                <img data-src="@Url.Content("~/ass/banner/4.png")" alt="Sản phẩm 4" class="responsive-img lazy-loading" />
+            </div>
+        </a>
+        <a class="grid-link gl-5" href="#">
+            <div class="product-image-container">
+                <img data-src="@Url.Content("~/ass/banner/5.jpg")" alt="Sản phẩm 5" class="responsive-img lazy-loading" />
+            </div>
+        </a>
+        <a class="grid-link gl-6" href="#">
+            <div class="product-image-container">
+                <img data-src="@Url.Content("~/ass/banner/5.jpg")" alt="Sản phẩm 6" class="responsive-img lazy-loading" />
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- Demo sections để test hiệu ứng fade-in -->
+<section class="fade-in-section delay-1" style="padding: 60px 0; background: #f8f9fa; margin: 40px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">SẢN PHẨM NỔI BẬT</h2>
+        <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Khám phá những sản phẩm công nghệ mới nhất và chất lượng cao nhất tại KNT Store</p>
+    </div>
+</section>
+
+<section class="fade-in-section delay-2" style="padding: 60px 0; background: white; margin: 40px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">DỊCH VỤ KHÁCH HÀNG</h2>
+        <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất với dịch vụ chuyên nghiệp</p>
+    </div>
+</section>
+
+<section class="fade-in-section delay-3" style="padding: 60px 0; background: #f8f9fa; margin: 40px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">TIN TỨC & CẬP NHẬT</h2>
+        <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Cập nhật những tin tức mới nhất về công nghệ và sản phẩm</p>
+    </div>
+</section>
+

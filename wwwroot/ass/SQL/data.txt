@@ -1,0 +1,130 @@
+-- Script thêm dữ liệu mẫu cho KNT Store
+USE KNTStoreDB;
+GO
+
+-- Xóa dữ liệu cũ (nếu có)
+DELETE FROM Reviews;
+DELETE FROM OrderItems;
+DELETE FROM Orders;
+DELETE FROM CartItems;
+DELETE FROM ProductAttributes;
+DELETE FROM ProductImages;
+DELETE FROM Products;
+DELETE FROM Banners;
+DELETE FROM Categories;
+DELETE FROM Users;
+GO
+
+-- Reset Identity
+DBCC CHECKIDENT ('Users', RESEED, 0);
+DBCC CHECKIDENT ('Categories', RESEED, 0);
+DBCC CHECKIDENT ('Products', RESEED, 0);
+DBCC CHECKIDENT ('ProductImages', RESEED, 0);
+DBCC CHECKIDENT ('ProductAttributes', RESEED, 0);
+DBCC CHECKIDENT ('CartItems', RESEED, 0);
+DBCC CHECKIDENT ('Orders', RESEED, 0);
+DBCC CHECKIDENT ('OrderItems', RESEED, 0);
+DBCC CHECKIDENT ('Reviews', RESEED, 0);
+DBCC CHECKIDENT ('Banners', RESEED, 0);
+GO
+
+-- Thêm Categories
+INSERT INTO Categories (Name, Description, ImageUrl, Slug, DisplayOrder, IsActive, CreatedAt) VALUES
+('Bàn phím', 'Bàn phím cơ, bàn phím gaming chất lượng cao', '/ass/icon/keyboard.png', 'ban-phim', 1, 1, GETDATE()),
+('Chuột', 'Chuột gaming, chuột không dây chính hãng', '/ass/icon/mouse.png', 'chuot', 2, 1, GETDATE()),
+('Laptop', 'Laptop gaming, laptop văn phòng hiệu năng cao', '/ass/icon/laptop.png', 'laptop', 3, 1, GETDATE()),
+('Camera', 'Webcam, camera hành trình chất lượng 4K', '/ass/icon/camera.png', 'camera', 4, 1, GETDATE()),
+('Microphone', 'Microphone gaming, microphone streaming chuyên nghiệp', '/ass/icon/microphone.png', 'microphone', 5, 1, GETDATE()),
+('Mouse Pad', 'Bàn di chuột gaming, bàn di chuột RGB', '/ass/icon/mousepad.png', 'mouse-pad', 6, 1, GETDATE());
+GO
+
+-- Thêm Users
+INSERT INTO Users (Username, Email, PasswordHash, FullName, PhoneNumber, Address, City, IsActive, IsEmailVerified, CreatedAt) VALUES
+('admin', 'admin@kntstore.com', 'AQAAAAEAACcQAAAAEHash123...', 'Administrator', '0123456789', '123 Đường ABC, Quận 1', 'TP.HCM', 1, 1, GETDATE()),
+('customer1', 'customer1@email.com', 'AQAAAAEAACcQAAAAEHash456...', 'Nguyễn Văn A', '0987654321', '456 Đường XYZ, Quận 2', 'TP.HCM', 1, 1, GETDATE()),
+('customer2', 'customer2@email.com', 'AQAAAAEAACcQAAAAEHash789...', 'Trần Thị B', '0912345678', '789 Đường DEF, Quận 3', 'TP.HCM', 1, 0, GETDATE());
+GO
+
+-- Thêm Products
+INSERT INTO Products (Name, Description, LongDescription, SKU, Price, SalePrice, MainImageUrl, Brand, Model, Color, StockQuantity, IsActive, IsFeatured, IsNew, CategoryId, Slug, CreatedAt) VALUES
+('Bàn phím cơ Logitech G Pro X', 'Bàn phím cơ gaming chuyên nghiệp với switch có thể thay đổi', 'Bàn phím cơ gaming cao cấp với công nghệ switch có thể thay đổi, phù hợp cho game thủ chuyên nghiệp', 'KB-LOGI-GPROX-001', 2500000, 2200000, '/ass/keyboard/logitech-g-pro-x.jpg', 'Logitech', 'G Pro X', 'Đen', 50, 1, 1, 1, 1, 'ban-phim-co-logitech-g-pro-x', GETDATE()),
+
+('Chuột gaming Razer DeathAdder V3', 'Chuột gaming chính xác cao với sensor 30,000 DPI', 'Chuột gaming chuyên nghiệp với sensor Focus Pro 30,000 DPI, thiết kế ergonomic hoàn hảo', 'MS-RAZER-DA-V3-001', 1800000, 1600000, '/ass/mouse/razer-deathadder-v3.jpg', 'Razer', 'DeathAdder V3', 'Đen', 30, 1, 1, 1, 2, 'chuot-gaming-razer-deathadder-v3', GETDATE()),
+
+('Laptop Gaming ASUS ROG Strix G15', 'Laptop gaming hiệu năng cao với RTX 4060', 'Laptop gaming mạnh mẽ với card đồ họa RTX 4060, CPU AMD Ryzen 7, màn hình 15.6 inch 144Hz', 'LAP-ASUS-ROG-G15-001', 25000000, 23000000, '/ass/lap/asus-rog-strix-g15.jpg', 'ASUS', 'ROG Strix G15', 'Đen', 10, 1, 1, 1, 3, 'laptop-gaming-asus-rog-strix-g15', GETDATE()),
+
+('Webcam Logitech C920 HD Pro', 'Webcam HD 1080p với micro tích hợp', 'Webcam HD 1080p chất lượng cao với micro tích hợp, phù hợp cho streaming và họp online', 'CAM-LOGI-C920-001', 1200000, 1000000, '/ass/cam/logitech-c920.jpg', 'Logitech', 'C920 HD Pro', 'Đen', 25, 1, 0, 0, 4, 'webcam-logitech-c920-hd-pro', GETDATE()),
+
+('Microphone Blue Yeti USB', 'Microphone USB chất lượng studio', 'Microphone USB chuyên nghiệp với 4 chế độ pickup, chất lượng âm thanh studio', 'MIC-BLUE-YETI-001', 3500000, 3200000, '/ass/microphone/blue-yeti.jpg', 'Blue', 'Yeti USB', 'Bạc', 15, 1, 1, 0, 5, 'microphone-blue-yeti-usb', GETDATE()),
+
+('Bàn di chuột SteelSeries QcK+', 'Bàn di chuột gaming kích thước lớn', 'Bàn di chuột gaming kích thước lớn với bề mặt mịn, phù hợp cho game thủ chuyên nghiệp', 'MP-STEEL-QCK-PLUS-001', 400000, 350000, '/ass/mouse pad/steelseries-qck-plus.jpg', 'SteelSeries', 'QcK+', 'Đen', 40, 1, 0, 0, 6, 'ban-di-chuot-steelseries-qck-plus', GETDATE());
+GO
+
+-- Thêm ProductImages
+INSERT INTO ProductImages (ProductId, ImageUrl, ThumbnailUrl, AltText, Title, DisplayOrder, IsMain, IsActive, CreatedAt) VALUES
+(1, '/ass/keyboard/logitech-g-pro-x-1.jpg', '/ass/keyboard/thumb/logitech-g-pro-x-1.jpg', 'Bàn phím Logitech G Pro X - Góc nhìn chính', 'Góc nhìn chính', 1, 1, 1, GETDATE()),
+(1, '/ass/keyboard/logitech-g-pro-x-2.jpg', '/ass/keyboard/thumb/logitech-g-pro-x-2.jpg', 'Bàn phím Logitech G Pro X - Góc nhìn bên', 'Góc nhìn bên', 2, 0, 1, GETDATE()),
+
+(2, '/ass/mouse/razer-deathadder-v3-1.jpg', '/ass/mouse/thumb/razer-deathadder-v3-1.jpg', 'Chuột Razer DeathAdder V3 - Góc nhìn chính', 'Góc nhìn chính', 1, 1, 1, GETDATE()),
+(2, '/ass/mouse/razer-deathadder-v3-2.jpg', '/ass/mouse/thumb/razer-deathadder-v3-2.jpg', 'Chuột Razer DeathAdder V3 - Góc nhìn bên', 'Góc nhìn bên', 2, 0, 1, GETDATE()),
+
+(3, '/ass/lap/asus-rog-strix-g15-1.jpg', '/ass/lap/thumb/asus-rog-strix-g15-1.jpg', 'Laptop ASUS ROG Strix G15 - Góc nhìn chính', 'Góc nhìn chính', 1, 1, 1, GETDATE()),
+(3, '/ass/lap/asus-rog-strix-g15-2.jpg', '/ass/lap/thumb/asus-rog-strix-g15-2.jpg', 'Laptop ASUS ROG Strix G15 - Màn hình', 'Màn hình', 2, 0, 1, GETDATE());
+GO
+
+-- Thêm ProductAttributes
+INSERT INTO ProductAttributes (ProductId, AttributeName, AttributeValue, AttributeType, DisplayOrder, IsActive, CreatedAt) VALUES
+(1, 'Loại switch', 'GX Blue Clicky', 'Text', 1, 1, GETDATE()),
+(1, 'Kết nối', 'USB-C', 'Text', 2, 1, GETDATE()),
+(1, 'LED', 'RGB', 'Text', 3, 1, GETDATE()),
+(1, 'Kích thước', 'TKL (87 phím)', 'Text', 4, 1, GETDATE()),
+
+(2, 'DPI', '30,000 DPI', 'Number', 1, 1, GETDATE()),
+(2, 'Kết nối', 'USB', 'Text', 2, 1, GETDATE()),
+(2, 'Nút bấm', '8 nút có thể lập trình', 'Number', 3, 1, GETDATE()),
+(2, 'Trọng lượng', '63g', 'Text', 4, 1, GETDATE()),
+
+(3, 'CPU', 'AMD Ryzen 7 6800H', 'Text', 1, 1, GETDATE()),
+(3, 'GPU', 'NVIDIA RTX 4060 8GB', 'Text', 2, 1, GETDATE()),
+(3, 'RAM', '16GB DDR5', 'Text', 3, 1, GETDATE()),
+(3, 'Ổ cứng', '512GB SSD NVMe', 'Text', 4, 1, GETDATE()),
+(3, 'Màn hình', '15.6 inch FHD 144Hz', 'Text', 5, 1, GETDATE());
+GO
+
+-- Thêm Banners
+INSERT INTO Banners (Title, Description, ImageUrl, LinkUrl, ButtonText, BannerType, Position, DisplayOrder, IsActive, CreatedAt) VALUES
+('KNT Store - Công nghệ hàng đầu', 'Khám phá những sản phẩm công nghệ mới nhất và chất lượng cao nhất', '/ass/banner/1o2.png', '/products', 'Mua ngay', 'Image', 'Homepage', 1, 1, GETDATE()),
+('Deal Hot - Giảm giá sốc', 'Ưu đãi đặc biệt cho khách hàng với mức giá không thể bỏ qua', '/ass/banner/2.png', '/deals', 'Xem ngay', 'Image', 'Homepage', 2, 1, GETDATE()),
+('Sản phẩm mới', 'Những sản phẩm công nghệ mới nhất vừa được ra mắt', '/ass/banner/3.png', '/new-products', 'Khám phá', 'Image', 'Homepage', 3, 1, GETDATE()),
+('Gaming Gear', 'Trang bị gaming chuyên nghiệp cho game thủ', '/ass/banner/4.png', '/gaming', 'Mua ngay', 'Image', 'Homepage', 4, 1, GETDATE());
+GO
+
+-- Thêm Reviews
+INSERT INTO Reviews (UserId, ProductId, Rating, Comment, Title, IsVerified, IsApproved, IsActive, CreatedAt) VALUES
+(2, 1, 5, 'Bàn phím rất tốt, switch mượt mà, build quality cao. Rất hài lòng với sản phẩm này!', 'Sản phẩm tuyệt vời', 1, 1, 1, GETDATE()),
+(2, 2, 4, 'Chuột gaming tốt, sensor chính xác, thiết kế đẹp. Chỉ hơi nhỏ so với tay mình.', 'Chuột gaming chất lượng', 1, 1, 1, GETDATE()),
+(3, 1, 5, 'Bàn phím cơ đầu tiên của mình, rất ấn tượng với chất lượng và trải nghiệm gõ phím.', 'Trải nghiệm tuyệt vời', 0, 1, 1, GETDATE());
+GO
+
+-- Thêm CartItems
+INSERT INTO CartItems (UserId, ProductId, Quantity, UnitPrice, TotalPrice, CreatedAt) VALUES
+(2, 1, 1, 2200000, 2200000, GETDATE()),
+(2, 2, 1, 1600000, 1600000, GETDATE()),
+(3, 3, 1, 23000000, 23000000, GETDATE());
+GO
+
+-- Thêm Orders
+INSERT INTO Orders (OrderNumber, UserId, CustomerName, CustomerEmail, CustomerPhone, ShippingAddress, City, SubTotal, TotalAmount, OrderStatus, PaymentStatus, PaymentMethod, CreatedAt) VALUES
+('ORD-2024-001', 2, 'Nguyễn Văn A', 'customer1@email.com', '0987654321', '456 Đường XYZ, Quận 2', 'TP.HCM', 3800000, 3800000, 'Delivered', 'Paid', 'COD', DATEADD(day, -5, GETDATE())),
+('ORD-2024-002', 3, 'Trần Thị B', 'customer2@email.com', '0912345678', '789 Đường DEF, Quận 3', 'TP.HCM', 23000000, 23000000, 'Processing', 'Paid', 'Bank Transfer', DATEADD(day, -2, GETDATE()));
+GO
+
+-- Thêm OrderItems
+INSERT INTO OrderItems (OrderId, ProductId, Quantity, UnitPrice, TotalPrice, ProductName, ProductSKU, ProductImageUrl) VALUES
+(1, 1, 1, 2200000, 2200000, 'Bàn phím cơ Logitech G Pro X', 'KB-LOGI-GPROX-001', '/ass/keyboard/logitech-g-pro-x-1.jpg'),
+(1, 2, 1, 1600000, 1600000, 'Chuột gaming Razer DeathAdder V3', 'MS-RAZER-DA-V3-001', '/ass/mouse/razer-deathadder-v3-1.jpg'),
+(2, 3, 1, 23000000, 23000000, 'Laptop Gaming ASUS ROG Strix G15', 'LAP-ASUS-ROG-G15-001', '/ass/lap/asus-rog-strix-g15-1.jpg');
+GO
+
+PRINT 'Seed data inserted successfully!';
+PRINT 'Database is ready for use!';

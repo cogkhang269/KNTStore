@@ -1,0 +1,155 @@
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>@ViewData["Title"] - KNT Store</title>
+    
+    <link rel="shortcut icon" href="~/ass/logo1.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/trangDangNhap.css" asp-append-version="true" />
+</head>
+<body class="trangDangNhap-body">
+    <div class="trangDangNhap-container">
+
+        <div class="trangDangNhap-right">
+            <h2 class="trangDangNhap-form-title">
+                <img src="~/ass/icon/x512.png" alt="TRANG CHỦ" class="trangDangNhap-close-btn" />
+            </h2>
+            <form method="post" action="/Account/Login" id="trangDangNhap-form">
+                <div class="trangDangNhap-form-group">
+                    <div class="trangDangNhap-input-group-username">
+                        <input type="text" id="email" name="email" class="trangDangNhap-input" 
+                               placeholder="Nhập email hoặc số điện thoại" required />
+                    </div>
+                </div>
+
+                <div class="trangDangNhap-form-group">
+                    <div class="trangDangNhap-input-group-password">
+                        <input type="password" id="password" name="password" class="trangDangNhap-input" 
+                               placeholder="Nhập mật khẩu" required />
+                    </div>
+                </div>
+
+                <div class="trangDangNhap-options">
+                    <label class="trangDangNhap-remember">
+                        <input type="checkbox" name="remember" />
+                        Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" class="trangDangNhap-forgot">Quên mật khẩu?</a>
+                </div>
+
+                <button type="submit" class="trangDangNhap-btn">
+                    <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>
+                    Đăng nhập
+                </button>
+            </form>
+
+            <div class="trangDangNhap-divider">
+                <span>Hoặc đăng nhập bằng</span>
+            </div>
+
+            <div class="trangDangNhap-social">
+                <a href="#" class="trangDangNhap-social-btn">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </a>
+                <a href="#" class="trangDangNhap-social-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+            </div>
+
+            <div class="trangDangNhap-register">
+                Chưa có tài khoản? <a href="/Account/Register">Đăng ký ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/trangDangNhap.js" asp-append-version="true"></script>
+    <script>
+    //     // Animation khi load trang
+    //     document.addEventListener('DOMContentLoaded', function() {
+    //         const container = document.querySelector('.trangDangNhap-container');
+    //         container.style.opacity = '0';
+    //         container.style.transform = 'translateY(30px)';
+            
+    //         setTimeout(() => {
+    //             container.style.transition = 'all 0.6s ease';
+    //             container.style.opacity = '1';
+    //             container.style.transform = 'translateY(0)';
+    //         }, 100);
+    //     });
+
+    //     // Hiệu ứng focus cho input
+    //     document.querySelectorAll('.trangDangNhap-input').forEach(input => {
+    //         input.addEventListener('focus', function() {
+    //             this.parentElement.style.transform = 'scale(1.02)';
+    //         });
+            
+    //         input.addEventListener('blur', function() {
+    //             this.parentElement.style.transform = 'scale(1)';
+    //         });
+    //     });
+
+    //     // Xử lý form submit
+    //     document.getElementById('trangDangNhap-form').addEventListener('submit', function(e) {
+    //         const submitBtn = this.querySelector('.trangDangNhap-btn');
+    //         submitBtn.classList.add('loading');
+    //         submitBtn.disabled = true;
+            
+    //         // Simulate loading (remove this in production)
+    //         setTimeout(() => {
+    //             submitBtn.classList.remove('loading');
+    //             submitBtn.disabled = false;
+    //         }, 2000);
+    //     });
+
+    //     // Validation
+    //     function validateEmail(email) {
+    //         const re = "";
+    //         return re.test(email);
+    //     }
+
+    //     function validatePhone(phone) {
+    //         const re = /^[0-9]{10,11}$/;
+    //         return re.test(phone.replace(/\s/g, ''));
+    //     }
+
+    //     document.getElementById('email').addEventListener('blur', function() {
+    //         const value = this.value.trim();
+    //         if (value && !validateEmail(value) && !validatePhone(value)) {
+    //             this.classList.add('error');
+    //             showError(this, 'Vui lòng nhập email hoặc số điện thoại hợp lệ');
+    //         } else {
+    //             this.classList.remove('error');
+    //             hideError(this);
+    //         }
+    //     });
+
+    //     function showError(input, message) {
+    //         hideError(input);
+    //         const errorDiv = document.createElement('div');
+    //         errorDiv.className = 'trangDangNhap-error-message';
+    //         errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+    //         input.parentElement.appendChild(errorDiv);
+    //     }
+
+    //     function hideError(input) {
+    //         const errorDiv = input.parentElement.querySelector('.trangDangNhap-error-message');
+    //         if (errorDiv) {
+    //             errorDiv.remove();
+    //         }
+    //     }
+    // </script>
+</body>
+</html>
+

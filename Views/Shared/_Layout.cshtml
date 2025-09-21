@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.3, user-scalable=yes, minimum-scale=0.1, maximum-scale=5.0" />
+    <title>KNT Store</title>
+
+    <link rel="shortcut icon" href="~/ass/logo1.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/gridItem.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/image-optimization.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/KNT.styles.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+</head>
+<body class="l_body">
+    <header class="modern-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                   
+                    <div class="logo-section">
+                        <h1 class="logo">
+                            <a href="/">
+                                <img src="~/ass/icon/x.png" alt="KNT STORE" style="height:90px; width:auto;" />
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="nullz">
+                        <span></span>
+                    </div>
+                    <div class="search-section">
+                        <form class="search-form" method="get" action="/search">
+                            <div class="search-input-group">
+                                <input type="search" name="q" placeholder="Tìm kiếm sản phẩm..." class="search-input" />
+                                <button type="submit" class="search-btn">
+                                    <img src="~/ass/icon/search.png" alt="Search" class="search-icon" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="user-actions">
+                        <div class="nullx">
+                            <span>            </span>
+                        </div>
+                        <a href="@Url.Action("Login","Account")" class="action-link" id="btnLogin">
+                            <img src="~/ass/icon/user.png" class="icon-normal"/>
+                            <img src="~/ass/icon/user-red.png" class="icon-hover"/>
+                        </a>
+                        
+                        <a href="#" class="action-link">
+                            <img src="~/ass/icon/truck.png" class="icon-normal"/> 
+                            <img src="~/ass/icon/truckre.png" class="icon-hover"/>
+                        </a>
+                        
+                        <a href="#" class="action-link cart-link">
+                            <img src="~/ass/icon/trolleyb.png" class="icon-normal"/>
+                            <img src="~/ass/icon/trolley.png" class="icon-hover"/>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link active">Trang chủ</a></li>
+                    <li><a href="#" class="nav-link">Deal Hot</a></li>
+                    <li><a href="#" class="nav-link">Hàng mới</a></li>
+                    <li><a href="#" class="nav-link">Coupon</a></li>
+                    <li><a href="#" class="nav-link">Hàng quốc tế</a></li>
+                    <li><a href="#" class="nav-link">CSKH</a></li>
+                    <li><a href="#" class="nav-link">Đơn hàng</a></li>
+                </ul>
+                <div class="magic-line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <div class="content">
+        <div class="container">
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - KNT
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/banner.js" asp-append-version="true"></script>
+    <script src="~/js/simple-lazy-load.js" asp-append-version="true"></script>
+    
+    <script>
+        $(document).ready(function() {
+            const $magicLine = $('.magic-line');
+            const $navLinks = $('.nav-link');
+            const $navMenu = $('.nav-menu');
+            
+            function initMagicLine() {
+                const $activeLink = $navLinks.filter('.active');
+                if ($activeLink.length) {
+                    const linkOffset = $activeLink.position().left;
+                    const linkWidth = $activeLink.outerWidth();
+                    $magicLine.css({
+                        'left': linkOffset + 'px',
+                        'width': linkWidth + 'px',
+                        'opacity': '1'
+                    });
+                }
+            }
+            
+            $navLinks.on('mouseenter', function() {
+                const $this = $(this);
+                const linkOffset = $this.position().left;
+                const linkWidth = $this.outerWidth();
+                
+                $magicLine.css({
+                    'left': linkOffset + 'px',
+                    'width': linkWidth + 'px',
+                    'opacity': '1'
+                });
+            });
+            
+            $navMenu.on('mouseleave', function() {
+                const $activeLink = $navLinks.filter('.active');
+                if ($activeLink.length) {
+                    const linkOffset = $activeLink.position().left;
+                    const linkWidth = $activeLink.outerWidth();
+                    $magicLine.css({
+                        'left': linkOffset + 'px',
+                        'width': linkWidth + 'px',
+                        'opacity': '1'
+                    });
+                } else {
+                    $magicLine.css('opacity', '0');
+                }
+            });
+            
+            $(window).on('resize', function() {
+                initMagicLine();
+            });
+            
+            initMagicLine();
+        });
+    </script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
