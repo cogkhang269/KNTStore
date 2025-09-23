@@ -1,4 +1,3 @@
-// Simple Lazy Loading for Testing
 (function() {
     'use strict';
 
@@ -13,7 +12,6 @@
             return;
         }
 
-        // Simple intersection observer
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -39,7 +37,6 @@
                 imageObserver.observe(img);
             });
         } else {
-            // Fallback: load all images immediately
             console.log('IntersectionObserver not supported, loading all images');
             lazyImages.forEach(img => {
                 const src = img.dataset.src;
@@ -52,7 +49,6 @@
         }
     }
 
-    // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initLazyLoading);
     } else {

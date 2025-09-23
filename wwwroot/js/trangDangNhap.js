@@ -1,23 +1,18 @@
-// File JavaScript cho trang đăng nhập
 document.addEventListener('DOMContentLoaded', function() {
-    // Tìm hình X và thêm sự kiện click
     const closeButton = document.querySelector('.trangDangNhap-close-btn');
     
     if (closeButton) {
         closeButton.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Thêm hiệu ứng click
             this.style.transform = 'scale(0.95)';
             this.style.transition = 'transform 0.1s ease';
             
-            // Quay về trang chủ sau hiệu ứng
             setTimeout(() => {
                 window.location.href = '/';
             }, 150);
         });
         
-        // Thêm hiệu ứng hover
         closeButton.addEventListener('mouseenter', function() {
             this.style.transform = 'scale(1.1)';
             this.style.transition = 'transform 0.2s ease';
@@ -29,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Animation khi load trang
     const container = document.querySelector('.trangDangNhap-container');
     if (container) {
         container.style.opacity = '0';
@@ -53,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
                 
                 if (!isVisible) {
-                    // Nếu form không hiển thị hoàn toàn, cuộn để hiển thị
                     container.scrollIntoView({ 
                         behavior: 'smooth', 
                         block: 'center' 
@@ -63,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Hiệu ứng focus cho input
     document.querySelectorAll('.trangDangNhap-input').forEach(input => {
         input.addEventListener('focus', function() {
             this.parentElement.style.transform = 'scale(1.02)';
@@ -76,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Xử lý form submit
     const form = document.getElementById('trangDangNhap-form');
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -84,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             
-            // Simulate loading (remove this in production)
             setTimeout(() => {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
@@ -92,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Validation
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);

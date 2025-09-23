@@ -4,33 +4,9 @@
 
 <section class="main-banner">
     <div class="banner-inner">
-     <!-- <div class="banner-image" data-interval="5000">
-        <img src="~/ass/banner/c1.png" alt="KNT Store Banner 1" class="active" />
-        <img src="~/ass/banner/c2.png" alt="KNT Store Banner 2" />
-        <img src="~/ass/banner/c3.png" alt="KNT Store Banner 3" />
-        <img src="~/ass/banner/c4.png" alt="KNT Store Banner 3" />
-    </div>  -->
-    <div class="banner-video">
-        <video autoplay muted loop playsinline>
-            <source src="~/ass/banner/c5.mp4" type="video/mp4" />
-            <source src="~/ass/banner/c5.webm" type="video/webm" />
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <!-- <div class="banner-controls">
-        <button type="button" class="banner-btn banner-pause" aria-label="Tạm dừng">❚❚</button>
-        <div class="banner-counter">
-            <span class="current-index">1</span>
-            <span class="sep">/</span>
-            <span class="total-count">1</span>
-            <button type="button" class="banner-btn banner-add" aria-label="Thêm ảnh">＋</button>
-        </div>
-        <div class="banner-nav">
-            <button type="button" class="banner-btn banner-prev" aria-label="Ảnh trước">‹</button>
-            <button type="button" class="banner-btn banner-next" aria-label="Ảnh kế">›</button>
-        </div>
-        <input type="file" accept="image/*" class="banner-file" style="display:none" />
-    </div> -->
+     <div class="banner-image" data-interval="5000">
+        <img src="~/ass/banner/bng.png" alt="KNT Store Banner 1" class="active" />
+    </div> 
 </section>
 <section class="banner-grid fade-in-section">
     <div class="header-title">
@@ -72,25 +48,171 @@
     </div>
 </section>
 
-<!-- Demo sections để test hiệu ứng fade-in -->
-<section class="fade-in-section delay-1" style="padding: 60px 0; background: #f8f9fa; margin: 40px 0;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">SẢN PHẨM NỔI BẬT</h2>
-        <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Khám phá những sản phẩm công nghệ mới nhất và chất lượng cao nhất tại KNT Store</p>
+<!-- Featured Products Section -->
+<section class="phan-muc fade-in-section delay-1">
+    <div class="bo-chua">
+        <div class="dau-trang">
+            <h2 class="tieu-de">SẢN PHẨM NỔI BẬT</h2>
+            <p class="tieu-de-phu">Khám phá những sản phẩm công nghệ mới nhất và chất lượng cao nhất</p>
+        </div>
+        <div class="luoi">
+            <div class="the">
+                <div class="anh-the">
+                    <img data-src="@Url.Content("~/ass/banner/1o2.png")" alt="Sản phẩm 1" class="responsive-img lazy-loading" />
+                    <div class="lop-phu">
+                        <button class="nut-bam">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="noi-dung-the">
+                    <h3 class="tieu-de-the">iPhone 15 Pro Max</h3>
+                    <p class="mo-ta-the">Thiết kế titan cao cấp, camera 48MP</p>
+                    <div class="gia">
+                        <span class="gia-hien-tai">29.990.000đ</span>
+                        <span class="gia-cu">32.990.000đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="the">
+                <div class="anh-the">
+                    <img data-src="@Url.Content("~/ass/banner/2.png")" alt="Sản phẩm 2" class="responsive-img lazy-loading" />
+                    <div class="lop-phu">
+                        <button class="nut-bam">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="noi-dung-the">
+                    <h3 class="tieu-de-the">MacBook Pro M3</h3>
+                    <p class="mo-ta-the">Hiệu năng vượt trội, màn hình Liquid Retina</p>
+                    <div class="gia">
+                        <span class="gia-hien-tai">45.990.000đ</span>
+                        <span class="gia-cu">49.990.000đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="the">
+                <div class="anh-the">
+                    <img data-src="@Url.Content("~/ass/banner/3.png")" alt="Sản phẩm 3" class="responsive-img lazy-loading" />
+                    <div class="lop-phu">
+                        <button class="nut-bam">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="noi-dung-the">
+                    <h3 class="tieu-de-the">AirPods Pro 2</h3>
+                    <p class="mo-ta-the">Chống ồn chủ động, âm thanh không gian</p>
+                    <div class="gia">
+                        <span class="gia-hien-tai">5.990.000đ</span>
+                        <span class="gia-cu">6.990.000đ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="the">
+                <div class="anh-the">
+                    <img data-src="@Url.Content("~/ass/banner/4.png")" alt="Sản phẩm 4" class="responsive-img lazy-loading" />
+                    <div class="lop-phu">
+                        <button class="nut-bam">Xem chi tiết</button>
+                    </div>
+                </div>
+                <div class="noi-dung-the">
+                    <h3 class="tieu-de-the">Apple Watch Series 9</h3>
+                    <p class="mo-ta-the">Theo dõi sức khỏe 24/7, GPS chính xác</p>
+                    <div class="gia">
+                        <span class="gia-hien-tai">8.990.000đ</span>
+                        <span class="gia-cu">9.990.000đ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="fade-in-section delay-2" style="padding: 60px 0; background: white; margin: 40px 0;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">DỊCH VỤ KHÁCH HÀNG</h2>
-        <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất với dịch vụ chuyên nghiệp</p>
+<!-- Services Section -->
+<section class="phan-muc fade-in-section delay-2 nen-nhe">
+    <div class="bo-chua">
+        <div class="dau-trang">
+            <h2 class="tieu-de">DỊCH VỤ KHÁCH HÀNG</h2>
+            <p class="tieu-de-phu">Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất</p>
+        </div>
+        <div class="luoi-dich-vu">
+            <div class="the-dich-vu">
+                <div class="bieu-tuong-dich-vu">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3 class="tieu-de-dich-vu">Giao hàng nhanh</h3>
+                <p class="mo-ta-dich-vu">Miễn phí giao hàng toàn quốc trong 24h</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="bieu-tuong-dich-vu">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="tieu-de-dich-vu">Bảo hành chính hãng</h3>
+                <p class="mo-ta-dich-vu">Bảo hành 12-24 tháng từ nhà sản xuất</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="bieu-tuong-dich-vu">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="tieu-de-dich-vu">Hỗ trợ 24/7</h3>
+                <p class="mo-ta-dich-vu">Tư vấn và hỗ trợ kỹ thuật mọi lúc</p>
+            </div>
+            <div class="the-dich-vu">
+                <div class="bieu-tuong-dich-vu">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <h3 class="tieu-de-dich-vu">Đổi trả dễ dàng</h3>
+                <p class="mo-ta-dich-vu">Đổi trả trong 30 ngày nếu không hài lòng</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="fade-in-section delay-3" style="padding: 60px 0; background: #f8f9fa; margin: 40px 0;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">TIN TỨC & CẬP NHẬT</h2>
-        <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Cập nhật những tin tức mới nhất về công nghệ và sản phẩm</p>
+<!-- News Section -->
+<section class="phan-muc fade-in-section delay-3">
+    <div class="bo-chua">
+        <div class="dau-trang">
+            <h2 class="tieu-de">TIN TỨC & CẬP NHẬT</h2>
+            <p class="tieu-de-phu">Cập nhật những tin tức mới nhất về công nghệ và sản phẩm</p>
+        </div>
+        <div class="luoi-tin-tuc">
+            <div class="the-tin-tuc tin-tuc-noi-bat">
+                <div class="anh-tin-tuc">
+                    <img data-src="@Url.Content("~/ass/banner/5.jpg")" alt="Tin tức 1" class="responsive-img lazy-loading" />
+                    <div class="huy-hieu">Mới nhất</div>
+                </div>
+                <div class="noi-dung-tin-tuc">
+                    <h3 class="tieu-de-tin-tuc">iPhone 15 Series chính thức ra mắt tại Việt Nam</h3>
+                    <p class="mo-ta-tin-tuc">Apple vừa chính thức ra mắt iPhone 15 series với nhiều cải tiến đáng kể về camera và hiệu năng...</p>
+                    <div class="thong-tin-tin-tuc">
+                        <span class="ngay-tin-tuc">15/10/2024</span>
+                        <span class="danh-muc-tin-tuc">Công nghệ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="the-tin-tuc">
+                <div class="anh-tin-tuc">
+                    <img data-src="@Url.Content("~/ass/banner/6.jpg")" alt="Tin tức 2" class="responsive-img lazy-loading" />
+                </div>
+                <div class="noi-dung-tin-tuc">
+                    <h3 class="tieu-de-tin-tuc">MacBook Pro M3: Hiệu năng vượt trội</h3>
+                    <p class="mo-ta-tin-tuc">Chip M3 mới mang lại hiệu năng xử lý đồ họa mạnh mẽ...</p>
+                    <div class="thong-tin-tin-tuc">
+                        <span class="ngay-tin-tuc">12/10/2024</span>
+                        <span class="danh-muc-tin-tuc">Laptop</span>
+                    </div>
+                </div>
+            </div>
+            <div class="the-tin-tuc">
+                <div class="anh-tin-tuc">
+                    <img data-src="@Url.Content("~/ass/banner/7.jpg")" alt="Tin tức 3" class="responsive-img lazy-loading" />
+                </div>
+                <div class="noi-dung-tin-tuc">
+                    <h3 class="tieu-de-tin-tuc">AirPods Pro 2: Âm thanh không gian</h3>
+                    <p class="mo-ta-tin-tuc">Trải nghiệm âm thanh không gian 3D với AirPods Pro thế hệ 2...</p>
+                    <div class="thong-tin-tin-tuc">
+                        <span class="ngay-tin-tuc">10/10/2024</span>
+                        <span class="danh-muc-tin-tuc">Phụ kiện</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

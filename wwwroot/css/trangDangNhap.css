@@ -1,81 +1,99 @@
+/* ===== CSS VARIABLES ===== */
 :root {
-    --primary-color: #e20000;
-    --secondary-color: #f34764;
-    --text-dark: #111;
-    --text-muted: #666;
-    --border-color: #ddd;
-    --bg-light: #f8f9fa;
-    --shadow: 0 4px 20px rgba(0,0,0,0.1);
-    --shadow-hover: 0 8px 25px rgba(226, 0, 0, 0.3);
+    --primary-color: #000000;
+    --secondary-color: #333333;
+    --text-dark: #000000;
+    --text-muted: #333333;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --bg-light: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
 }
 
+/* ===== GLOBAL STYLES ===== */
+*, html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ===== MAIN LAYOUT ===== */
 .trangDangNhap-body {
-    font-family: "SF Pro Display UltraLight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     position: relative;
     min-height: 100vh;
     width: 100vw;
-    margin: 0;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
     z-index: 9999;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
 }
 
 .trangDangNhap-container {
-    background: white;
-    border-radius: 15px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 7px;
     box-shadow: var(--shadow);
     overflow: hidden;
-    width: min(500px, 90vw);
+    width: min(450px, 90vw);
     min-width: 280px;
     max-width: min(500px, 90vw);
     min-height: 600px;
     max-height: 90vh;
     display: flex;
-    animation: trangDangNhap-fadeIn 0.6s ease-out;
     position: relative;
     margin: 0;
-    box-sizing: border-box;
     flex-shrink: 0;
-}
-
-@keyframes trangDangNhap-fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    animation: trangDangNhap-fadeIn 0.6s ease-out;
 }
 
 .trangDangNhap-right {
     flex: 1;
-    padding: 60px 50px;
+    padding: 30px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     animation: trangDangNhap-slideInRight 0.8s ease-out;
 }
-.trangDangNhap-input-group-password {
-    margin-bottom: 20px;
-}
-@keyframes trangDangNhap-slideInRight {
-    from {
-        opacity: 0;
-        transform: translatey(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+
+/* ===== ANIMATIONS ===== */
+@keyframes trangDangNhap-fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes trangDangNhap-slideInRight {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes trangDangNhap-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== FORM TITLE & CLOSE BUTTON ===== */
 .trangDangNhap-form-title {
     font-size: 2rem;
     font-weight: 600;
@@ -86,6 +104,7 @@
     justify-content: center;
     align-items: center;
     height: 50px;
+    color: var(--text-dark);
 }
 
 .trangDangNhap-close-btn {
@@ -95,23 +114,24 @@
     justify-content: center;
     position: relative;
     z-index: 10;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: none;
+    transform: scale(1) !important;
 }
 
-
-.trangDangNhap-close-btn img {
-    width: 16px !important;
-    height: 16px !important;
-    max-width: 16px !important;
-    max-height: 16px !important;
-    object-fit: contain;
-    display: block;
+.trangDangNhap-close-btn:hover {
+    transform: scale(1) !important;
+    transition: none !important;
 }
 
+/* ===== FORM GROUPS & INPUTS ===== */
 .trangDangNhap-form-group {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     position: relative;
 }
 
@@ -120,56 +140,21 @@
     position: relative;
 }
 
-.trangDangNhap-input-group-username .trangDangNhap-input {
-    border-left: 1px solid var(--border-color);
-    border-radius: 5px 5px 0 0;
-    border-right: 1px solid var(--border-color);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid #e0e0e0; 
-    transition: all 0.3s ease;
-}
-.trangDangNhap-input-group-password .trangDangNhap-input {
-    border-radius: 0 0 5px 5px;
-    border-top: 1px solid #e0e0e0;
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-.trangDangNhap-input-group-username .trangDangNhap-input:hover {
-    background: white;
-    border-top: 1px solid var(--primary-color);
-    border-left: 1px solid var(--primary-color);
-    border-right: 1px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
-    border-color: var(--primary-color);
+.trangDangNhap-input-group-password {
+    margin-bottom: 20px;
 }
 
-.trangDangNhap-input-group-username .trangDangNhap-input:focus {
-    background: white;
-    border-color: var(--primary-color);
-}
-
-
-
-.trangDangNhap-input-group-password .trangDangNhap-input:hover {
-    background: white;
-    border-color: var(--primary-color);
-}
-
-.trangDangNhap-input-group-password .trangDangNhap-input:focus {
-    background: white;
-    border-color: var(--primary-color);
-}
 .trangDangNhap-input {
-    font-family: "SF Pro Display UltraLight";
     width: 100%;
+    height: 45px;
     padding: 12px 20px;
     border: none;
     font-size: 1rem;
-    background: var(--bg-light);
-    box-sizing: border-box;
-    height: 45px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
 }
 
 .trangDangNhap-input:focus {
@@ -177,13 +162,40 @@
 }
 
 .trangDangNhap-input::placeholder {
-    color: #999;
+    color: rgba(0, 0, 0, 0.6);
 }
 
+/* ===== INPUT BORDERS ===== */
+.trangDangNhap-input-group-username .trangDangNhap-input {
+    border-left: 1px solid var(--border-color);
+    border-radius: 5px 5px 0 0;
+    border-right: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.trangDangNhap-input-group-password .trangDangNhap-input {
+    border-radius: 0 0 5px 5px;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ===== INPUT STATES ===== */
+.trangDangNhap-input-group-username .trangDangNhap-input:hover,
+.trangDangNhap-input-group-username .trangDangNhap-input:focus,
+.trangDangNhap-input-group-password .trangDangNhap-input:hover,
+.trangDangNhap-input-group-password .trangDangNhap-input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--primary-color);
+}
+
+/* ===== FORM OPTIONS ===== */
 .trangDangNhap-options {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 15px;
     margin-bottom: 30px;
     font-size: 0.9rem;
 }
@@ -192,6 +204,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: var(--text-dark);
 }
 
 .trangDangNhap-remember input {
@@ -203,8 +216,9 @@
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    text-align: center;
     position: relative;
+    transition: all 0.3s ease;
 }
 
 .trangDangNhap-forgot::after {
@@ -219,28 +233,26 @@
 }
 
 .trangDangNhap-forgot:hover {
-    color: var(--secondary-color);
+    color: rgb(40, 122, 230);
 }
 
-.trangDangNhap-forgot:hover::after {
-    width: 100%;
-}
-
+/* ===== BUTTONS ===== */
 .trangDangNhap-btn {
     width: 100%;
-    padding: 15px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    height: auto;
+    padding: 12px 20px;
+    background: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    text-transform: none;
+    letter-spacing: 0.3px;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .trangDangNhap-btn::before {
@@ -250,185 +262,6 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.trangDangNhap-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-}
-
-.trangDangNhap-btn:hover::before {
-    left: 100%;
-}
-
-.trangDangNhap-btn:active {
-    transform: translateY(0);
-}
-
-.trangDangNhap-divider {
-    text-align: center;
-    margin: 30px 0;
-    position: relative;
-    color: var(--text-muted);
-}
-
-.trangDangNhap-divider::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--border-color);
-}
-
-.trangDangNhap-divider span {
-    background: white;
-    padding: 0 20px;
-    font-size: 0.9rem;
-}
-
-.trangDangNhap-social {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.trangDangNhap-social-btn {
-    flex: 1;
-    padding: 12px;
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    background: white;
-    color: var(--text-dark);
-    text-decoration: none;
-    text-align: center;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    position: relative;
-    overflow: hidden;
-}
-
-.trangDangNhap-social-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--primary-color);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.trangDangNhap-social-btn:hover {
-    border-color: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.trangDangNhap-social-btn:hover::before {
-    opacity: 1;
-}
-
-.trangDangNhap-social-btn i,
-.trangDangNhap-social-btn span {
-    position: relative;
-    z-index: 1;
-}
-
-.trangDangNhap-register {
-    text-align: center;
-    color: var(--text-muted);
-}
-
-.trangDangNhap-register a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.trangDangNhap-register a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.trangDangNhap-register a:hover {
-    color: var(--secondary-color);
-}
-
-.trangDangNhap-register a:hover::after {
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    .trangDangNhap-container {
-        width: min(450px, 95vw);
-        min-height: auto;
-        max-height: 95vh;
-    }
-    
-    .trangDangNhap-right {
-        padding: 40px 30px;
-    }
-    
-    .trangDangNhap-form-title {
-        font-size: 1.5rem;
-    }
-    
-    .trangDangNhap-input {
-        height: 44px;
-        padding: 10px 18px;
-    }
-    
-    .trangDangNhap-close-btn img {
-        width: 14px !important;
-        height: 14px !important;
-        max-width: 14px !important;
-        max-height: 14px !important;
-    }
-    
-    .trangDangNhap-social {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 480px) {
-    .trangDangNhap-container {
-        width: min(400px, 98vw);
-        border-radius: 15px;
-        max-height: 98vh;
-    }
-    
-    .trangDangNhap-right {
-        padding: 30px 20px;
-    }
-    
-    .trangDangNhap-input {
-        height: 42px;
-        padding: 8px 16px;
-    }
-    
-    .trangDangNhap-close-btn img {
-        width: 12px !important;
-        height: 12px !important;
-        max-width: 12px !important;
-        max-height: 12px !important;
-    }
 }
 
 .trangDangNhap-btn:disabled {
@@ -456,13 +289,90 @@
     animation: trangDangNhap-spin 1s linear infinite;
 }
 
-@keyframes trangDangNhap-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* ===== SOCIAL BUTTONS ===== */
+.trangDangNhap-social {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.trangDangNhap-social-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-dark);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: none;
+}
+
+.trangDangNhap-social-btn::before {
+    display: none;
+}
+
+.trangDangNhap-social-btn i,
+.trangDangNhap-social-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== REGISTER LINK ===== */
+.trangDangNhap-register {
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.trangDangNhap-register a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.trangDangNhap-register a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.trangDangNhap-register a:hover {
+    color: var(--secondary-color);
+}
+
+.trangDangNhap-register a:hover::after {
+    width: 100%;
+}
+
+/* ===== FOCUS & ERROR STATES ===== */
+.trangDangNhap-btn:focus,
+.trangDangNhap-social-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .trangDangNhap-input.error {
     background: #fff5f5;
+}
+
+.trangDangNhap-input.success {
+    background: #f8fff9;
 }
 
 .trangDangNhap-error-message {
@@ -478,168 +388,57 @@
     font-size: 0.75rem;
 }
 
-.trangDangNhap-input.success {
-    background: #f8fff9;
-}
-
-.trangDangNhap-btn:focus,
-.trangDangNhap-social-btn:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-/* Căn giữa container trong mọi trường hợp */
-.trangDangNhap-container {
-    position: relative;
-    margin: 0;
-    transform: translateY(0);
-    flex-shrink: 0;
-}
-
-/* Đảm bảo form luôn căn giữa hoàn hảo khi zoom */
-.trangDangNhap-body {
-    position: relative !important;
-    min-height: 100vh !important;
-    width: 100vw !important;
-    margin: 0 !important;
-    padding: 20px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-sizing: border-box !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    z-index: 9999 !important;
-}
-
-/* Responsive cho màn hình rất nhỏ */
-@media (max-height: 600px) {
-    .trangDangNhap-body {
-        align-items: flex-start;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
     .trangDangNhap-container {
+        width: min(450px, 95vw);
         min-height: auto;
-    }
-}
-
-/* Thanh cuộn đẹp mắt */
-.trangDangNhap-body::-webkit-scrollbar {
-    width: 8px;
-}
-
-.trangDangNhap-body::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.trangDangNhap-body::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 4px;
-    transition: background 0.3s ease;
-}
-
-.trangDangNhap-body::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-}
-
-/* Thanh cuộn cho Firefox */
-.trangDangNhap-body {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) #f1f1f1;
-}
-
-/* Thanh cuộn cho các trình duyệt khác */
-.trangDangNhap-body {
-    scroll-behavior: smooth;
-}
-
-/* Xử lý khi form quá cao */
-@media (max-height: 700px) {
-    .trangDangNhap-body {
-        align-items: flex-start;
-        padding: 10px;
-    }
-    
-    .trangDangNhap-container {
-        margin: 20px 0;
-        min-height: auto;
-    }
-}
-
-@media (max-height: 500px) {
-    .trangDangNhap-body {
-        padding: 5px;
-    }
-    
-    .trangDangNhap-container {
-        margin: 10px 0;
+        max-height: 95vh;
     }
     
     .trangDangNhap-right {
-        padding: 20px;
+        padding: 40px 30px;
+    }
+    
+    .trangDangNhap-form-title {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        height: 45px;
+    }
+    
+    .trangDangNhap-input {
+        height: 44px;
+        padding: 10px 18px;
+    }
+    
+    .trangDangNhap-social {
+        flex-direction: column;
     }
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-size: 16px;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-family: "SF Pro Display UltraLight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-
-
-/* Xử lý khi zoom lớn */
-@media (min-resolution: 1.5dppx) {
+@media (max-width: 480px) {
     .trangDangNhap-container {
-        transform: scale(1);
-        transform-origin: center;
+        width: min(400px, 98vw);
+        border-radius: 15px;
+        max-height: 98vh;
+    }
+    
+    .trangDangNhap-right {
+        padding: 30px 20px;
+    }
+    
+    .trangDangNhap-form-title {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        height: 40px;
+    }
+    
+    .trangDangNhap-input {
+        height: 42px;
+        padding: 8px 16px;
     }
 }
 
-/* Xử lý khi zoom rất lớn */
-@media (min-width: 1400px) {
-    .trangDangNhap-container {
-        max-width: 500px;
-    }
-}
-
-/* Xử lý khi zoom rất nhỏ */
-@media (max-width: 280px) {
-    .trangDangNhap-container {
-        width: 95vw;
-        min-width: 250px;
-    }
-}
-
-/* Xử lý khi zoom lớn */
-@media (min-width: 1200px) {
-    .trangDangNhap-container {
-        max-width: 500px;
-    }
-}
-
-/* Xử lý khi zoom nhỏ */
 @media (max-width: 320px) {
     .trangDangNhap-container {
         width: min(300px, 99vw);
@@ -649,8 +448,36 @@ body {
     .trangDangNhap-right {
         padding: 20px 15px;
     }
+    
+    .trangDangNhap-form-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        height: 35px;
+    }
 }
 
+/* ===== ZOOM HANDLING ===== */
+@media (min-width: 1200px), (min-width: 1400px) {
+    .trangDangNhap-container {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 280px) {
+    .trangDangNhap-container {
+        width: 95vw;
+        min-width: 250px;
+    }
+}
+
+@media (min-resolution: 1.5dppx) {
+    .trangDangNhap-container {
+        transform: scale(1);
+        transform-origin: center;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
 @media print {
     .trangDangNhap-container {
         box-shadow: none;
